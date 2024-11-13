@@ -74,6 +74,39 @@ public class Main {
         prosesData(() -> "Dataku 2", data -> data.length());
         prosesData(() -> "Dataku ke 3", data -> data.length());
 
+
+        //soal no 9
+        operasi((x)-> {
+            System.out.println("Memproses : " + x);
+            String result = x.trim();
+            result = result.toUpperCase();
+            return result;
+        });
+        operasi((x)-> {
+            System.out.println("Memproses : " + x);
+            String result = x.trim();
+            result = result.toLowerCase();
+            return result;
+        });
+        operasi((x)-> {
+            System.out.println("Memproses : " + x);
+            String result = x.trim();
+            result =String.valueOf(result.length());
+            return result;
+        });
+
+        //soal no 10
+        TextProcessor conditional = text -> {
+            if(text.isEmpty()){
+                return "Text Kosong";
+            } else if(text.isBlank()){
+                return "Text juga Kosong";
+            } else {
+                return "ada isinya : "+ text;
+            }
+        };
+
+        System.out.println(conditional.process("soal 10"));
     }
 
     public static void sampaikanPesan(Pesan pesan) {
@@ -97,5 +130,8 @@ public class Main {
     public static void prosesData(Pesan prosesString, ProsesData prosesData) {
         System.out.println(prosesString.sampaikanPesan());
         System.out.println(prosesData.convert(prosesString.sampaikanPesan()));
+    }
+    public static void operasi(ProsesString operasi){
+        System.out.println(operasi.prosesString("Soal no 9"));
     }
 }
